@@ -1,0 +1,21 @@
+#!/bin/bash
+echo "####################################"
+echo "Start meliark-before"
+echo "####################################"
+
+echo "Populate Core Team Keys"
+echo "####################################"
+pacman-key --init
+pacman-key --populate archlinux
+pacman-key --populate meliark
+
+echo "Changing int our own linux.preset"
+echo "####################################"
+mv /etc/mkinitcpio.d/meliark /etc/mkinitcpio.d/linux.preset
+
+echo "####################################"
+echo "End meliark-before"
+echo "####################################"
+rm /usr/local/bin/meliark-before
+
+
